@@ -1,0 +1,68 @@
+<ul>
+    <li>
+        <sub-solar-point>
+            <label>
+                <md-checkbox class="md-primary" ng-model="$ctrl.showSubsolarPoint">
+                    Sub-solar point <img class="legend-icon" src="img/Sun.png" />
+                </md-checkbox>
+            </label>
+        </sub-solar-point>
+    </li>
+    <li>
+        <ground-tracking>
+            <label>
+                <md-checkbox class="md-primary" ng-model="$ctrl.showGroundTrack">
+                    Ground tracking <img class="legend-icon" src="img/Track.png" />
+                </md-checkbox>
+            </label>
+        </ground-tracking>
+    </li>
+    <li ng-if="$ctrl.selectedParam1d !== 'none'">
+        <hr>
+        <p class="data-title">
+            {{$ctrl.selectedParam1dDisplay ? $ctrl.selectedParam1dDisplay + ' (' + $ctrl.selectedParam1dUnits + ')' :
+            "No Data"}}
+        </p>
+        <p class="min-max">
+            {{($ctrl.minOrbitColorParam || $ctrl.minOrbitColorParam === 0) ?
+            $ctrl.minOrbitColorParam : "No Data" | numLen:6:2}}
+        </p>
+        <div class="gradient-rect" ng-style="$ctrl.orbitPathGradient"></div>
+        <p class="min-max">
+            {{($ctrl.maxOrbitColorParam || $ctrl.maxOrbitColorParam === 0) ?
+            $ctrl.maxOrbitColorParam : "No Data" | numLen:6:2}}
+        </p>
+    </li>
+    <li ng-if="$ctrl.selectedParam3d !== 'none'">
+        <hr>
+        <p class="data-title">
+            {{$ctrl.selectedParam3dDisplay ? $ctrl.selectedParam3dDisplay + ' (' + $ctrl.selectedParam3dUnits + ')' :
+            "No Data"}}
+        </p>
+        <p class="min-max">
+            {{($ctrl.minWhiskerMagnitude || $ctrl.minWhiskerMagnitude === 0) ?
+            $ctrl.minWhiskerMagnitude : "No Data" | numLen:6:2}}
+        </p>
+        <div class="gradient-rect" ng-style="$ctrl.whiskerGradient">
+            <div class="gradient-triangle-cover"></div>
+        </div>
+        <p class="min-max">
+            {{($ctrl.maxWhiskerMagnitude || $ctrl.maxWhiskerMagnitude === 0) ?
+            $ctrl.maxWhiskerMagnitude : "No Data" | numLen:6:2}}
+        </p>
+    </li>
+    <li ng-if="$ctrl.selectedParamMgitm !== 'none'">
+        <hr>
+        <p class="data-title">
+            {{$ctrl.selectedParamMgitmDisplay ? $ctrl.selectedParamMgitmDisplay + ' (' + $ctrl.selectedParamMgitmUnits + ')' :
+            "No Data"}}
+        </p>
+        <p class="min-max">
+            {{($ctrl.minMgitm || $ctrl.minMgitm === 0) ? $ctrl.minMgitm : "No Data" | numLen:6:2}}
+        </p>
+        <div class="gradient-rect" ng-style="$ctrl.mgitmGradient"></div>
+        <p class="min-max">
+            {{($ctrl.maxMgitm || $ctrl.maxMgitm === 0) ? $ctrl.maxMgitm : "No Data" | numLen:6:2}}
+        </p>
+    </li>
+</ul>

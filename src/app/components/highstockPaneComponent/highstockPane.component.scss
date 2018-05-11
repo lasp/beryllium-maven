@@ -1,0 +1,58 @@
+// Hide unnecessary menu items
+.close-btn, .filter-btn, .metadata-btn, .timerange-btn,
+.zoom-in-btn, .zoom-out-btn, .pan-left-btn, .pan-right-btn,
+.zoom-menu {
+    display: none;
+}
+.plot-menu {
+    .ui-menu-disable, .ui-menu-overplot,
+    .ui-menu-view-limits, .ui-menu-view-limit-violation-flags,
+    .ui-menu-view-events, .ui-menu-view-eventtypes,
+    .ui-menu-yaxis-scale-yellow-limits, .ui-menu-yaxis-scale-red-limits,
+    .ui-menu-yaxis-labels, .ui-menu-date-formatting,
+    .ui-menu-data-display-minmax-range, .ui-menu-data-display-data-grouping {
+        display: none;
+    }
+}
+
+.undo-zoom { // appears too close to the line otherwise
+    margin-right: 8px;
+}
+
+#instructions {
+    clear: both;
+
+    padding: 20px;
+    margin-top: 240px;
+
+    font-size: 20px;
+    text-align: center;
+    color: #aaa;
+
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 100%;
+    -ms-flex: 0 0 100%;
+    flex: 0 0 100%;
+    min-width: 100%;
+
+    @extend %unselectable;
+}
+
+#instructions[aria-hidden="false"] {
+    animation: 1s bounceInDown ease;
+    -webkit-animation: 1s bounceInDown ease;
+}
+
+#instructions .pointer {
+    font-family: sans-serif;
+    font-weight: bold;
+    font-size: 150%;
+}
+
+#instructions .subtitle {
+    font-size: 14px;
+}
+
+.plot {
+    padding: 8px;
+}

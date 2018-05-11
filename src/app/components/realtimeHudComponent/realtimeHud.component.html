@@ -1,0 +1,8 @@
+<table>
+    <tbody>
+        <tr ng-repeat="label in $ctrl.labels">
+            <th ng-bind-html="label"></th>
+            <td ng-bind-html="$ctrl.values[$index]"></td>
+        </tr>
+    </tbody>
+</table>

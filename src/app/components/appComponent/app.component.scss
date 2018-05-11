@@ -1,0 +1,35 @@
+app {
+    display: block;
+    height: 100%; // Necessary for safari to display properly
+    width: 100%;
+}
+
+body {
+    // Disable main page scrolling. This would otherwise allow users to scroll
+    // down and see white below the content.
+    overflow: hidden;
+}
+
+// So the base layer picker appears over the real time hud
+.cesium-baseLayerPicker-dropDown {
+    z-index: 1;
+}
+
+// This style fixes a positioning bug in the sidebar's
+// uib-datepicker-popup. We're a little short on width
+// here and on some machines it gets cut off by the
+// sidebar scrollbar on the right. This forces the
+// dropdown to render in the exact center of the sidebar.
+md-sidenav .uib-datepicker-popup.dropdown-menu {
+    left: 50% !important;
+    margin-left: -144px; // 1/2 width of dropdown, empirically
+}
+
+%unselectable {
+    /*Makes text unselectable*/
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+}

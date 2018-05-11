@@ -1,0 +1,22 @@
+<p id="instructions" ng-show="$pane.plots.length === 0">
+    <span class="pointer">&#128072;</span>
+    Add a plot using the controls to the left<br>
+    <span class="subtitle">Select a parameter to begin</span>
+</p>
+
+<div sv-root
+     sv-part="$pane.plots"
+     ng-if="$pane.plots.length > 0"
+     sv-on-start="$pane.onPlotDragStart($item, $part, $index, $helper)"
+     sv-on-stop="$pane.onPlotDragStop()"
+>
+    <div ng-repeat="plot in $pane.plots" sv-element class="plot">
+        <div draw-plot
+             plot-list="$pane.plots"
+             menu-options="plot.menuOptions"
+             datasets="plot.datasets"
+             time-range="plot.timeRange"
+             plot-obj="plot.plotObj">
+        </div>
+    </div>
+</div>

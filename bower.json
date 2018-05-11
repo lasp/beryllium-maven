@@ -1,0 +1,19 @@
+{
+  "name": "beryllium-maven",
+  "authors": [
+    "Brian Putnam <brian.putnam@lasp.colorado.edu>"
+  ],
+  "description": "",
+  "license": "ISC",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "beryllium": "https://github.com/lasp/beryllium.git"
+  }
+}

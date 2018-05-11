@@ -1,0 +1,9 @@
+/node_modules
+/dist
+/.tmp
+/.idea
+.bower.json
+/.DS_Store
+bower_components/beryllium
+!bower_components/beryllium/
+*.iml

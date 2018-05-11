@@ -1,0 +1,62 @@
+$gradient-bar-height: 0.7em;
+$gradient-bar-width: 200px;
+
+legend {
+  background-color: white;
+  border-radius: 10px;
+  color: black;
+  display: block;
+  float: right;
+  font-size: 14px;
+  margin: 8px;
+  opacity: 0.75;
+  padding: 10px 0 0;
+
+  .data-title {
+    margin: 0;
+  }
+
+  .gradient-rect {
+    background: gray;
+    display: inline-block;
+    height: $gradient-bar-height;
+    width: $gradient-bar-width;
+  }
+
+  .gradient-triangle-cover {
+    border-top: $gradient-bar-height solid white;
+    border-right: $gradient-bar-width solid transparent;
+    top: 0;
+    left: 0;
+    height: 0;
+    width: 0;
+  }
+
+  hr {
+    margin: 10px 15px 10px 0;
+  }
+
+  md-checkbox {
+    margin-bottom: 0;
+  }
+
+  .md-label, p {
+      @extend %unselectable;
+  }
+
+  li {
+    padding: 0 0 0 15px;
+    text-align: left;
+    white-space: nowrap;
+  }
+
+  .min-max {
+    display: inline;
+    margin: 3px;
+  }
+
+  ul {
+    list-style-type: none;
+    padding: 0;
+  }
+}

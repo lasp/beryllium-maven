@@ -1,0 +1,28 @@
+
+realtime-hud {
+    display: inline-block;
+    color: #CCC;
+
+    margin: 8px;
+
+    position: absolute;
+    top: 45px;
+
+    // Was too easy to accidentally select
+    // and really hard to un-select
+    @extend %unselectable;
+
+    table {
+        border-collapse: collapse;
+    }
+
+    th {
+        text-align: left;
+        white-space: nowrap;
+    }
+
+    th, td {
+        border: 1px solid #333;
+        padding: 4px 15px;
+    }
+}

@@ -1,0 +1,184 @@
+<cesium flex
+        on-cesium-viewer-available="$ctrl.setCesiumViewer( viewer )"
+        on-cesium-dates-changed="$ctrl.setDisplayDates( timeframe )"
+        reference-frame="$ctrl.selectedReferenceFrame"
+>
+    <create-cesium initial-dates="$ctrl.displayDates" ></create-cesium>
+    <side-nav-content>
+        <section class="datepicker-parent" collapse-container>
+            <md-toolbar>
+                <h3 class="md-toolbar-tools" layout="row">
+                    Date Range
+                    <span flex></span>
+                    <collapse-trigger></collapse-trigger>
+                </h3>
+            </md-toolbar>
+            <collapse-target class="datepicker-parent">
+                <md-content class="datepicker-parent" layout="column" layout-padding>
+                    <single-date-picker
+                        available-min-date="$ctrl.availableDates.start"
+                        available-max-date="$ctrl.availableDates.end"
+                        date="$ctrl.displayDates.start"
+                        on-change="$ctrl.onDateRangeChanged(start)"
+                    ></single-date-picker>
+                </md-content>
+            </collapse-target>
+        </section>
+
+        <section collapse-container>
+            <md-toolbar>
+                <h3 class="md-toolbar-tools">
+                    Maven In-Situ Data
+                    <span flex></span>
+                    <collapse-trigger></collapse-trigger>
+                </h3>
+            </md-toolbar>
+            <collapse-target>
+                <md-content layout="column" layout-padding>
+
+                    <md-input-container>
+                        <label>Reference frame</label>
+                        <md-select ng-model="$ctrl.selectedReferenceFrame">
+                            <md-option value="planetary">Planetary</md-option>
+                            <md-option value="inertial">Inertial</md-option>
+                        </md-select>
+                    </md-input-container>
+
+                    <md-input-container>
+                        <label>Orbit Path Color (1D Parameters)</label>
+                        <md-select ng-model="$ctrl.selectedParam1d">
+                            <md-option value="none" selected>None</md-option>
+                            <md-option
+                                ng-repeat="param in $ctrl.params1d"
+                                ng-value="param.value"
+                            >{{param.display}}</md-option>
+                        </md-select>
+                    </md-input-container>
+
+                    <md-input-container>
+                        <label>Orbit Path 'Whiskers' (3D Parameters)</label>
+                        <md-select ng-model="$ctrl.selectedParam3d">
+                            <md-option value="none" selected>None</md-option>
+                            <md-option
+                                ng-repeat="param in $ctrl.params3d"
+                                ng-value="param.display"
+                            >{{param.display}}</md-option>
+                        </md-select>
+                    </md-input-container>
+                    <p class="disclaimer"><small>
+                        Note: Not every parameter will have data available for a given time range.
+                        This could mean that data was not collected at that time, or that the data
+                        is still being processed and will be released at a later date. The MAG data
+                        in particular has a processing delay due to the timing of calibration maneuvers.
+                    </small></p>
+
+                </md-content>
+            </collapse-target>
+        </section>
+
+        <section collapse-container>
+            <md-toolbar>
+                <h3 class="md-toolbar-tools">
+                    M-GITM
+                    <span flex></span>
+                    <collapse-trigger></collapse-trigger>
+                </h3>
+            </md-toolbar>
+            <collapse-target>
+                <md-content layout="column" layout-padding>
+                    <div>
+                        <label>Modelled L<sub>S</sub>:</label> {{$ctrl.mgitmSolarLongitude}}&deg;
+                    </div>
+
+                    <md-input-container>
+                        <label>Solar Flux (10.7cm)</label>
+                        <md-select ng-model="$ctrl.mgitmSolarFlux">
+                            <md-option value="70">Min (70 s.f.u.)</md-option>
+                            <md-option value="130">Mean (130 s.f.u.)</md-option>
+                            <md-option value="200">Max (200 s.f.u.)</md-option>
+                        </md-select>
+                    </md-input-container>
+
+                    <md-input-container>
+                        <label>Parameter</label>
+                        <md-select ng-model="$ctrl.mgitmParameter">
+                            <md-option value="none" selected>None</md-option>
+                            <md-option
+                                ng-repeat="param in $ctrl.paramsMgitm"
+                                ng-value="param.value"
+                            >{{param.display}}</md-option>
+                        </md-select>
+                    </md-input-container>
+
+                    <md-input-container>
+                        <label>Altitude</label>
+                        <md-select ng-model="$ctrl.mgitmAltitude">
+                            <md-option ng-repeat="altitude in $ctrl.mgitmAltitudes" value="{{altitude}}">
+                                {{altitude}} km
+                            </md-option>
+                        </md-select>
+                    </md-input-container>
+
+                    <md-input-container>
+                        <label>Latitude (used for plotting longitude)</label>
+                        <md-select ng-model="$ctrl.mgitmLatitude">
+                            <md-option ng-repeat="latitude in $ctrl.mgitmLatitudes" value="{{latitude}}">
+                                {{latitude}}
+                            </md-option>
+                        </md-select>
+                    </md-input-container>
+
+                    <md-input-container>
+                        <label>Longitude (used for plotting latitude)</label>
+                        <md-select ng-model="$ctrl.mgitmLongitude">
+                            <md-option ng-repeat="longitude in $ctrl.mgitmLongitudes" value="{{longitude}}">
+                                {{longitude}}
+                            </md-option>
+                        </md-select>
+                    </md-input-container>
+                </md-content>
+            </collapse-target>
+        </section>
+    </side-nav-content>
+    <realtime-hud></realtime-hud>
+    <spacecraft-entities
+        timeframe="$ctrl.requestedDates"
+        show-ground-track="$ctrl.showGroundTrack"
+        selected-param-1d="$ctrl.selectedParam1d"
+        selected-param-3d="$ctrl.selectedParam3d"
+    ></spacecraft-entities>
+    <sun-entities
+        show-subsolar-point="$ctrl.showSubsolarPoint"
+    ></sun-entities>
+    <mgitm-shell
+        solar-flux="$ctrl.mgitmSolarFlux"
+        solar-longitude="$ctrl.mgitmSolarLongitude"
+        altitude="$ctrl.mgitmAltitude"
+        parameter="$ctrl.mgitmParameter"
+    ></mgitm-shell>
+    <legend-content>
+        <legend show-subsolar-point="$ctrl.showSubsolarPoint"
+                show-ground-track="$ctrl.showGroundTrack"
+                selected-param-1d="$ctrl.selectedParam1d"
+                selected-param-3d="$ctrl.selectedParam3d"
+                selected-param-mgitm="$ctrl.mgitmParameter"
+                params-1d="$ctrl.params1d"
+                params-3d="$ctrl.params3d"
+                params-mgitm="$ctrl.paramsMgitm">
+        </legend>
+    </legend-content>
+    <highstock-pane-content>
+        <highstock-pane
+            timeframe="$ctrl.requestedDates"
+            selected-param-1d="$ctrl.selectedParam1d"
+            selected-param-3d="$ctrl.selectedParam3d"
+            selected-param-mgitm="$ctrl.mgitmParameter"
+            solar-flux="$ctrl.mgitmSolarFlux"
+            solar-longitude="$ctrl.mgitmSolarLongitude"
+            altitude="$ctrl.mgitmAltitude"
+            latitude="$ctrl.mgitmLatitude"
+            longitude="$ctrl.mgitmLongitude">
+        </highstock-pane>
+    </highstock-pane-content>
+    <!-- <debug-axis></debug-axis> -->
+</cesium>
