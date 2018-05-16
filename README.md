@@ -50,8 +50,8 @@ The following custom cesium-directives have been installed inside the `<cesium>`
 ### Build System
 
 We use a standard Gulp and Node build system for this project:
-	[Gulp](https://gulpjs.com/)
-	[Node](https://nodejs.org/en/)
+* [Gulp](https://gulpjs.com/)
+* [Node](https://nodejs.org/en/)
 
 ##### Task Cheatsheet
 
