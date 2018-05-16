@@ -49,9 +49,7 @@ The following custom cesium-directives have been installed inside the `<cesium>`
 
 ### Build System
 
-We use a standard Gulp and Node build system for this project:
-* [Gulp](https://gulpjs.com/)
-* [Node](https://nodejs.org/en/)
+We use a standard [Gulp](https://gulpjs.com/) and [Node](https://nodejs.org/en/) build system for this project.
 
 ##### Task Cheatsheet
 
@@ -68,7 +66,13 @@ gulp clean // removes dist folder and any/all temporary folders
 Currently pulls data directly from a latis instance. Eventually this data will be available
 publicly so it will be possible to run the app from anywhere.
 
-### Deploying Beryllium-Maven
+### Instructions for Deploying Beryllium-MMS
+1. `cd beryllium-maven`
+1. `npm install`
+	1. This installs all node modules that are required for this application to run.
+1. `bower install`
+	1. This gathers beryllium from the Github repository.
+1. `gulp serve`
 
 ### FAQs and Help
 
