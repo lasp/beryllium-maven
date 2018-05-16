@@ -1,14 +1,5 @@
 # Beryllium-Maven
 
-### Contacts
-
-* **Product Owner:**
-	Alex DeWolfe
-* **Experienced Devs:**
-    * Fernando Sanchez
-    * Dylan Nguyen
-    * Hunter Leise
-
 ### Beryllium-Maven Summary
 
 This is the second incarnation of the Beryllium-Maven Project. The original name was Cesium-Maven.
@@ -78,10 +69,6 @@ Currently pulls data directly from a latis instance. Eventually this data will b
 publicly so it will be possible to run the app from anywhere.
 
 ### Deploying Beryllium-Maven
-
-##### Requirements
-
-Nothing major, just make sure Alex DeWolfe is aware of production deployments.
 
 ### FAQs and Help
 
