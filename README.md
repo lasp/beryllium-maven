@@ -66,7 +66,7 @@ gulp clean // removes dist folder and any/all temporary folders
 Currently pulls data directly from a latis instance. Eventually this data will be available
 publicly so it will be possible to run the app from anywhere.
 
-### Instructions for Deploying Beryllium-MMS
+### Instructions for Deploying Beryllium-Maven
 1. `cd beryllium-maven`
 1. `npm install`
 	1. This installs all node modules that are required for this application to run.
