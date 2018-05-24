@@ -76,7 +76,7 @@ publicly so it will be possible to run the app from anywhere.
 
 ### FAQs and Help
 
-For questions, please contact LASP web team.
+For questions, please contact the LASP Web Application Development Team <web.support@lasp.colorado.edu>
 
 ##### Beryllium-Maven-specific common issues, gotchas
 
