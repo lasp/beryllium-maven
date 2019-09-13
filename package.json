@@ -4,6 +4,8 @@
   "description": "This project is a cesium-based 3D visualization of the Maven mission, similar to [beryllium-mms](https://github.com/lasp/beryllium-mms.git)",
   "main": "index.js",
   "scripts": {
+    "build": "gulp cleanBuild",
+    "start": "gulp serve",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -13,18 +15,18 @@
   "author": "LASP Web Application Development Team <web.support@lasp.colorado.edu>",
   "license": "ISC",
   "devDependencies": {
-    "browser-sync": "^2.17.5",
-    "del": "^2.2.2",
+    "browser-sync": "^2.26.7",
+    "del": "^5.0.0",
     "gulp": "^3.9.1",
     "gulp-add-src": "^0.2.0",
-    "gulp-angular-templatecache": "^2.0.0",
-    "gulp-autoprefixer": "^3.1.1",
-    "gulp-concat": "^2.6.0",
+    "gulp-angular-templatecache": "^3.0.0",
+    "gulp-autoprefixer": "^6.1.0",
+    "gulp-concat": "^2.6.1",
     "gulp-minify-html": "^1.0.6",
-    "gulp-rename": "^1.2.2",
-    "gulp-sass": "^2.3.2",
+    "gulp-rename": "^1.4.0",
+    "gulp-sass": "^4.0.2",
     "gulp-war": "^0.1.4",
-    "gulp-zip": "^3.2.0",
-    "run-sequence": "^1.2.2"
+    "gulp-zip": "^5.0.0",
+    "run-sequence": "^2.2.1"
   }
 }

@@ -49,14 +49,15 @@ The following custom cesium-directives have been installed inside the `<cesium>`
 
 ### Build System
 
-We use a standard [Gulp](https://gulpjs.com/) and [Node](https://nodejs.org/en/) build system for this project.
+* We use a standard [Gulp](https://gulpjs.com/) and [Node](https://nodejs.org/en/) build system for this project.
+* You'll need to install `node_modules` before you can start by running `npm install` (requires node/npm to be installed globally on your machine).
+* You'll also need to install `bower_components` before you can start by running `bower install` (requires bower to be installed globally on your machine).
 
 ##### Task Cheatsheet
 
 ```
-gulp build // builds the project to the dist folder
-gulp serve // builds and serves the project locally, rebuilds when changes are detected
-gulp clean // removes dist folder and any/all temporary folders
+npm run build // removes the dist folder and any/all temporary folders and then rebuilds the project to the dist folder
+npm start // builds and serves the project locally, rebuilds when changes are detected
 ```
 
 ### Running Beryllium-Maven Locally
@@ -72,7 +73,7 @@ publicly so it will be possible to run the app from anywhere.
 	1. This installs all node modules that are required for this application to run.
 1. `bower install`
 	1. This gathers beryllium from the Github repository.
-1. `gulp serve`
+1. `npm start`
 
 ### FAQs and Help
 
